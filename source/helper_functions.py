@@ -4,19 +4,29 @@ import pandas as pd
 # that can read a csv into python
 
 def read_data(filename):
-    data = pd.read_csv(filename)
+    if '.csv' in filename:
+        data = pd.read_csv(filename)
+    elif '.dta':
+        data = pd.read_stata(filename)
 
     return data
 
 # 2. Explore Data: You can use the code you wrote for assignment 1 here to 
 # generate distributions and data summaries.
 
-def varnames(df):
-    print(df.columns)
+def describe_column(df, columnname):
+    print(df[columnname].describe)
+    #add number of unique values, missing values, other interesting stats
 
-def explore(df):
-    df.describe()
-    pass
+def tabular(df, columnname):
+    #number of complaints by type
+    ctcounts = df[columnname].value_counts().to_frame()
+    total = sum(ctcounts[columnname])
+    ctcounts['Percent'] = ctcounts[columnname]/total
+    print(ctcounts.sort)
+
+def histogram(df, columnname):
+    #create histogram
 
 # 3. Pre-Process Data: For this assignment, you can limit this to filling in 
 # missing values for the variables that have missing values. You can use any 
