@@ -1,3 +1,5 @@
+import pandas as pd
+import numpy as np
 # 4. Generate Features/Predictors: For this assignment, you should write one 
 # function that can discretize a continuous variable and one function that can 
 # take a categorical variable and create binary/dummy variables from it. Apply 
@@ -52,5 +54,5 @@ def make_dummies(df, varname):
     Creates a set of dummies out of "varname"
     '''
     for i, value in enumerate(df[varname].unique()):
-        print(type(value), value)
-        df[varname+'_{}'.format(value)] = df[varname] == value
+        print(i, type(value), value)
+        df[varname+'_{}'.format(i)] = df[varname] == value
