@@ -15,7 +15,7 @@ def tabular(df, columnname):
     ctcounts = df[columnname].value_counts().to_frame()
     total = sum(ctcounts[columnname])
     ctcounts['Percent'] = ctcounts[columnname]/total
-    print(ctcounts.sort)
+    return ctcounts.sort_values('Percent', ascending=False)
 
 def histogram(df, columnname):
     pass
