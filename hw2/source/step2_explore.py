@@ -18,5 +18,5 @@ def tabular(df, columnname):
     return ctcounts.sort_values('Percent', ascending=False)
 
 def histogram(df, columnname):
-    pass
+    df[columnname].hist()
     #create histogram
