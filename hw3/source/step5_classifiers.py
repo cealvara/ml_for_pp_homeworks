@@ -1,4 +1,8 @@
-from sklearn.model_selection import train_test_split
+try:
+    from sklearn.model_selection import train_test_split
+except:
+    from sklearn.cross_validation import train_test_split
+    
 from sklearn.linear_model import LogisticRegression
 
 # 5. Build Classifier: For this assignment, select any classifier you feel 
